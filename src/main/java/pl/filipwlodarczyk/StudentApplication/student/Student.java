@@ -3,14 +3,15 @@ package pl.filipwlodarczyk.StudentApplication.student;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "student")
+@Table(name = "students", uniqueConstraints = {
+        @UniqueConstraint(name = "student_email_unique ", columnNames = "email")
+})
 public class Student {
 
 
