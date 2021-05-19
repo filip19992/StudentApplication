@@ -3,21 +3,25 @@ package pl.filipwlodarczyk.StudentApplication.student;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Getter
 @Setter
-
+@Entity
 public class Student {
 
 
+    @Id
     private Long id;
     private String name;
     private String email;
     private LocalDate dob;
     private Integer age;
 
-    public Student(){
+    public Student() {
 
     }
 
