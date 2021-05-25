@@ -28,4 +28,10 @@ public class StudentController {
     public void registerNewStudent(@RequestBody Student student) {
         studentService.addNewStudent(student);
     }
-}
+
+    @DeleteMapping
+    public void deleteStudentById(@RequestBody Long id) {
+       studentService.deleteStudentById(id);
+        }
+    }
+

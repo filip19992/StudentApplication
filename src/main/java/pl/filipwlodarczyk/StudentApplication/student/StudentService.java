@@ -23,4 +23,8 @@ public class StudentService {
         System.out.println(student);
         return repository.save(student);
     }
+
+    public void deleteStudentById(Long id) {
+        repository.deleteById(id);
+    }
 }
