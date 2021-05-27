@@ -1,8 +1,8 @@
 package pl.filipwlodarczyk.StudentApplication.student;
 
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,13 +10,13 @@ import java.time.Period;
 
 @Getter
 @Setter
-@Entity(name = "student")
+@Entity
 @Table
 public class Student {
 
 
     @Id
-    @SequenceGenerator(name = "student_sequence",sequenceName = "student_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "student_sequence", sequenceName = "student_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
     private Long id;
 

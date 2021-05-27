@@ -21,7 +21,7 @@ public class StudentController {
 
     @GetMapping("all-students")
     public List<Student> getStudents() {
-      return  studentService.getStudents();
+        return studentService.getStudents();
     }
 
     @PostMapping
@@ -29,9 +29,18 @@ public class StudentController {
         studentService.addNewStudent(student);
     }
 
-    @DeleteMapping
-    public void deleteStudentById(@RequestBody Long id) {
-       studentService.deleteStudentById(id);
-        }
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(
+            @PathVariable("studentId") Long studentId) {
+        studentService.deleteStudentById(studentId);
     }
+
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable("studentId") Long studentId,
+                                   @RequestParam(required = false) String name,
+                                   @RequestParam(required = false) String email) {
+        studentService.updateStudent(studentId, name, email);
+    }
+
+}
 
